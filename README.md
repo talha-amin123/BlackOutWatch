@@ -7,9 +7,12 @@ This repository is organized in two complementary views:
 - GitHub repo view: README, code, figures, and processed outputs
 - Public static report view: a standalone page in `docs/`
 
+Public report link:
+[BlackoutWatch Report](https://talha-amin123.github.io/BlackOutWatch/)
+
 ## Quick Links
 
-- Public report page: `docs/index.html`
+- Public report page: [BlackoutWatch Report](https://talha-amin123.github.io/BlackOutWatch/)
 - Static page source: `docs/index.html`
 - Main outage dataset: `data/processed/eagle_i_texas_daily.csv`
 - Notebook analysis: `notebooks/01_eda_eagle_i.ipynb`
