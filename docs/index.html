@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlackoutWatch Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Data Engineering + Analytics Portfolio Project</p>
+        <h1>BlackoutWatch</h1>
+        <p class="lede">
+          A Texas county-day outage intelligence pipeline that combines power interruption activity,
+          weather observations, and storm-event records into a machine-learning-ready dataset.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/talha-amin123/BlackOutWatch">View Repository</a>
+          <a class="button secondary" href="#findings">See Findings</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <p class="panel-label">Why this is recruiter-friendly</p>
+        <ul class="feature-list">
+          <li>End-to-end data pipeline across multiple public sources</li>
+          <li>Large-scale county-day dataset spanning 10 years</li>
+          <li>Exploratory analysis exported into visual summaries</li>
+          <li>Easy to host as a static GitHub Pages project</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Project metrics">
+      <article class="metric-card">
+        <p class="metric-label">Coverage</p>
+        <p class="metric-value">254</p>
+        <p class="metric-note">Texas counties represented</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Time span</p>
+        <p class="metric-value">2014-2023</p>
+        <p class="metric-note">10 years of county-day records</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Scale</p>
+        <p class="metric-value">927,608</p>
+        <p class="metric-note">Rows in the outage dataset</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Largest daily peak</p>
+        <p class="metric-value">455,986</p>
+        <p class="metric-note">Max customers out on a single county-day</p>
+      </article>
+    </section>
+
+    <section class="section" id="findings">
+      <div class="section-heading">
+        <p class="eyebrow">Key Findings</p>
+        <h2>What stands out in the data</h2>
+      </div>
+      <div class="insight-grid">
+        <article class="insight-card">
+          <h3>Outages are not evenly distributed</h3>
+          <p>
+            The heaviest cumulative outage burden is concentrated in large urban counties, with Dallas,
+            Harris, Travis, Tarrant, and Bexar leading by total summed customer interruptions.
+          </p>
+        </article>
+        <article class="insight-card">
+          <h3>Summer is the most outage-prone season</h3>
+          <p>
+            June shows the highest outage-day rate in this processed dataset, with elevated activity
+            across late spring and summer as weather risk intensifies.
+          </p>
+        </article>
+        <article class="insight-card">
+          <h3>Extreme spikes are visible in 2021 winter events</h3>
+          <p>
+            The largest daily peaks appear during the February 2021 Texas winter crisis, including
+            major disruption in Harris, Dallas, and Tarrant counties.
+          </p>
+        </article>
+        <article class="insight-card">
+          <h3>This repo is built for downstream modeling</h3>
+          <p>
+            The final outputs align outage behavior with weather and storm covariates at the county-day
+            level, making the data directly usable for ML experiments or forecasting workflows.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Visual Summary</p>
+        <h2>Analysis snapshots</h2>
+      </div>
+      <div class="gallery">
+        <figure class="gallery-card wide">
+          <img src="../reports/figures/01_county_year_outage_heatmap.png" alt="County-year outage heatmap for Texas counties.">
+          <figcaption>
+            <strong>County-Year Outage Heatmap</strong>
+            Highlights where outage burden clusters across geography and time.
+          </figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="../reports/figures/02_top20_counties_significant_outage_freq.png" alt="Top 20 Texas counties by significant outage frequency.">
+          <figcaption>
+            <strong>Top 20 Counties</strong>
+            Shows which counties are repeatedly exposed to significant outage activity.
+          </figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="../reports/figures/03_outage_duration_analysis.png" alt="Outage duration analysis chart.">
+          <figcaption>
+            <strong>Outage Duration Analysis</strong>
+            Summarizes how long outage events tend to persist once they occur.
+          </figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="../reports/figures/04_coverage_adjusted_impact.png" alt="Coverage-adjusted impact visualization.">
+          <figcaption>
+            <strong>Coverage-Adjusted Impact</strong>
+            Balances raw outage counts against available customer coverage estimates.
+          </figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="../reports/figures/05_max_vs_total_impact.png" alt="Maximum versus total outage impact comparison.">
+          <figcaption>
+            <strong>Peak vs. Total Impact</strong>
+            Distinguishes counties with sharp spikes from counties with sustained cumulative burden.
+          </figcaption>
+        </figure>
+        <figure class="gallery-card wide">
+          <img src="../reports/figures/06_seasonal_patterns.png" alt="Seasonal outage pattern chart.">
+          <figcaption>
+            <strong>Seasonal Patterns</strong>
+            Shows how outage activity varies across the calendar year.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section pipeline">
+      <div class="section-heading">
+        <p class="eyebrow">Pipeline Design</p>
+        <h2>How the project works</h2>
+      </div>
+      <div class="pipeline-grid">
+        <article>
+          <span>01</span>
+          <h3>Acquire</h3>
+          <p>Collect outage data, weather observations, and storm-event records from public sources.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Standardize</h3>
+          <p>Normalize each source to county-day granularity and align counties through mapping logic.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Enrich</h3>
+          <p>Add coverage adjustments, weather features, storm indicators, and temporal features.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Analyze</h3>
+          <p>Export figures and summary views that surface risk concentration, seasonality, and impact.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section footer-card">
+      <div>
+        <p class="eyebrow">Next Step</p>
+        <h2>Make this visible to recruiters</h2>
+        <p>
+          Enable GitHub Pages from the <code>docs/</code> folder and use that project URL on your resume,
+          LinkedIn, or portfolio. It gives viewers a fast visual overview before they dig into the code.
+        </p>
+      </div>
+      <div class="footer-actions">
+        <a class="button primary" href="https://github.com/talha-amin123/BlackOutWatch">Open GitHub Repo</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

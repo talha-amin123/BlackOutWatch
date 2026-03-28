@@ -1,28 +1,74 @@
 # BlackoutWatch
 
-BlackoutWatch is a Texas-focused outage data preparation project for downstream machine learning and analysis. The repository builds county-day datasets that combine power outage activity, weather observations, and severe storm events.
+BlackoutWatch is a Texas-focused outage analytics project that transforms raw outage, weather, and storm-event sources into a county-day dataset for exploratory analysis and downstream machine learning.
 
-## What This Repo Contains
+This repository is now set up to be showcased in two ways:
 
-This repository currently focuses on data acquisition and preprocessing rather than model training or a deployed dashboard.
+- GitHub repo view: a cleaner README with visuals, findings, and pipeline context
+- GitHub Pages view: a static showcase page in `docs/` for recruiter-friendly browsing
 
-- EAGLE-I outage preprocessing at the county-day level
-- GHCN-Daily weather aggregation from station-day to county-day
-- NOAA Storm Events aggregation to county-day storm indicators
-- County/station mapping utilities for Texas weather stations
-- exploratory notebooks and exported figures
+## Quick Links
 
-## Setup
+- Showcase page: publish `docs/` with GitHub Pages, then use that URL on your resume or LinkedIn
+- Static page source: `docs/index.html`
+- Main outage dataset: `data/processed/eagle_i_texas_daily.csv`
+- Notebook analysis: `notebooks/01_eda_eagle_i.ipynb`
 
-Create an environment and install dependencies:
+## Project Snapshot
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+- Coverage: 254 Texas counties
+- Time span: 2014-01-01 through 2023-12-31
+- Dataset scale: 927,608 county-day outage records
+- Largest single-county daily peak: 455,986 customers out
+- Highest cumulative outage burden in this processed dataset: Dallas County
 
-## Data Pipeline
+## Why This Project Is Worth Showing
+
+- It combines multiple public data sources into a unified analytical dataset rather than analyzing a single CSV in isolation.
+- It demonstrates end-to-end data engineering: acquisition, cleaning, geographic mapping, aggregation, enrichment, and export.
+- It produces outputs that are immediately useful for forecasting, resilience analysis, and outage-risk modeling.
+- It includes both code and visual artifacts, so a recruiter can understand the work quickly without running the full pipeline.
+
+## Key Findings
+
+- Outage burden is concentrated in major urban counties, with Dallas, Harris, Travis, Tarrant, and Bexar standing out by cumulative customer impact.
+- June is the highest-outage month in the processed county-day series, with late spring and summer showing elevated disruption rates.
+- The largest daily spikes occur during the February 2021 Texas winter crisis, especially in Harris, Dallas, and Tarrant counties.
+- The final processed outputs align outage behavior with weather and storm signals, which makes the repository useful for later machine learning experiments.
+
+## Visual Preview
+
+### County-Year Heatmap
+
+![County-year outage heatmap](reports/figures/01_county_year_outage_heatmap.png)
+
+### Most Frequently Affected Counties
+
+![Top 20 counties by outage frequency](reports/figures/02_top20_counties_significant_outage_freq.png)
+
+### Duration and Seasonal Behavior
+
+![Outage duration analysis](reports/figures/03_outage_duration_analysis.png)
+
+![Seasonal outage patterns](reports/figures/06_seasonal_patterns.png)
+
+## Showcase Page
+
+The repository includes a recruiter-facing static page in `docs/`:
+
+- `docs/index.html`
+- `docs/site.css`
+
+To publish it with GitHub Pages:
+
+1. Push the latest repo state to GitHub.
+2. Open `Settings` in the GitHub repository.
+3. Go to `Pages`.
+4. Choose `Deploy from a branch`.
+5. Set the branch to `main` and the folder to `/docs`.
+6. Save and use the generated Pages URL as your public project demo link.
+
+## What The Pipeline Does
 
 Run the scripts in this order:
 
@@ -40,7 +86,7 @@ python scripts/06_preprocess_storm_events.py
 1. `01_download_data.py`
    Downloads EAGLE-I outage files and supporting metadata from Figshare into `data/raw/eagle_i/`.
 2. `02_preprocess_eagle_i.py`
-   Filters outage records to Texas, aggregates 15-minute intervals to daily county metrics, adds customer-count metadata, and writes `data/processed/eagle_i_texas_daily.csv`.
+   Filters outage records to Texas, aggregates 15-minute observations into daily county metrics, adds customer-count metadata, and writes `data/processed/eagle_i_texas_daily.csv`.
 3. `03_scrape_station_data.py`
    Uses the FCC geography API to map Texas GHCN weather stations to counties.
 4. `04_county_station_mapping.py`
@@ -57,11 +103,20 @@ BlackOutWatch/
 ├── data/
 │   ├── raw/              # External source files, ignored by git
 │   └── processed/        # Derived county-day datasets tracked in this repo
+├── docs/                 # Static showcase page for GitHub Pages
 ├── notebooks/            # EDA and scratch notebooks
-├── reports/figures/      # Exported analysis figures
+├── reports/figures/      # Exported visual summaries
 ├── scripts/              # Data collection and preprocessing scripts
 ├── README.md
 └── requirements.txt
+```
+
+## Setup
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Data Sources
@@ -80,8 +135,6 @@ BlackOutWatch/
 
 ## Current Outputs
 
-The repository currently includes these main processed datasets:
-
 - `data/processed/eagle_i_texas_daily.csv`
 - `data/processed/ghcn_texas_daily.csv`
 - `data/processed/storm_events_texas_daily.csv`
@@ -89,9 +142,5 @@ The repository currently includes these main processed datasets:
 
 ## Notes
 
-- This repo is already initialized as git and can be pushed to GitHub.
-- The tracked processed CSVs make the repository relatively large, but each individual file is still below GitHub's 100 MB hard limit.
-
-## Collaboration
-
-This project was developed collaboratively. The current repository is maintained by Talha Amin, and earlier repository work includes contributions from Saurav Kanegaonkar.
+- The tracked processed CSVs make the repository relatively large, but each individual file remains below GitHub's 100 MB hard limit.
+- GitHub may still warn that some files are above its recommended 50 MB size threshold.
