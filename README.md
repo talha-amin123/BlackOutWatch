@@ -2,14 +2,14 @@
 
 BlackoutWatch is a Texas-focused outage analytics project that transforms raw outage, weather, and storm-event sources into a county-day dataset for exploratory analysis and downstream machine learning.
 
-This repository is now set up to be showcased in two ways:
+This repository is organized in two complementary views:
 
-- GitHub repo view: a cleaner README with visuals, findings, and pipeline context
-- GitHub Pages view: a static showcase page in `docs/` for recruiter-friendly browsing
+- GitHub repo view: README, code, figures, and processed outputs
+- Public static report view: a standalone page in `docs/`
 
 ## Quick Links
 
-- Showcase page: publish `docs/` with GitHub Pages, then use that URL on your resume or LinkedIn
+- Public report page: `docs/index.html`
 - Static page source: `docs/index.html`
 - Main outage dataset: `data/processed/eagle_i_texas_daily.csv`
 - Notebook analysis: `notebooks/01_eda_eagle_i.ipynb`
@@ -27,7 +27,7 @@ This repository is now set up to be showcased in two ways:
 - It combines multiple public data sources into a unified analytical dataset rather than analyzing a single CSV in isolation.
 - It demonstrates end-to-end data engineering: acquisition, cleaning, geographic mapping, aggregation, enrichment, and export.
 - It produces outputs that are immediately useful for forecasting, resilience analysis, and outage-risk modeling.
-- It includes both code and visual artifacts, so a recruiter can understand the work quickly without running the full pipeline.
+- It includes both code and visual artifacts, so visitors can understand the work quickly without running the full pipeline.
 
 ## Key Findings
 
@@ -52,9 +52,9 @@ This repository is now set up to be showcased in two ways:
 
 ![Seasonal outage patterns](reports/figures/06_seasonal_patterns.png)
 
-## Showcase Page
+## Public Report Page
 
-The repository includes a recruiter-facing static page in `docs/`:
+The repository includes a public-facing static page in `docs/`:
 
 - `docs/index.html`
 - `docs/site.css`
@@ -66,7 +66,7 @@ To publish it with GitHub Pages:
 3. Go to `Pages`.
 4. Choose `Deploy from a branch`.
 5. Set the branch to `main` and the folder to `/docs`.
-6. Save and use the generated Pages URL as your public project demo link.
+6. Save and use the generated Pages URL as the public report link.
 
 ## What The Pipeline Does
 
@@ -103,7 +103,7 @@ BlackOutWatch/
 ├── data/
 │   ├── raw/              # External source files, ignored by git
 │   └── processed/        # Derived county-day datasets tracked in this repo
-├── docs/                 # Static showcase page for GitHub Pages
+├── docs/                 # Static public report page
 ├── notebooks/            # EDA and scratch notebooks
 ├── reports/figures/      # Exported visual summaries
 ├── scripts/              # Data collection and preprocessing scripts
